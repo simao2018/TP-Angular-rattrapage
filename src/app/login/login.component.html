@@ -1,0 +1,64 @@
+<style>
+  body{
+    overflow: hidden !important;
+  }
+  .main{
+    min-height: 700px;
+  }
+  .bloc .column{
+    margin-top:150px;
+    min-height: 350px;
+    border-radius:5px;
+  }
+</style>
+
+<!-- Bloc Principal -->
+<div class="main container has-background-primary is-fullhd" role="banner">
+  <div class="bloc columns">
+    <div class="column is-one-third has-background-white is-offset-4">
+      <div class="has-text-centered">
+        <p class="subtitle is-4"> Connexion </p><hr>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="field">
+          <label for="login" class="label">Login :</label>
+          <div *ngIf="login.invalid" class="has-text-danger">Veuillez saisir le login !</div>
+          <div class="control has-icons-left">
+            <input type="text" id="login" #login="ngModel" placeholder="Saisir votre login" class="input" name="login" required ngModel>
+            <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pass" class="label">Mot de passe :</label>
+          <div *ngIf="pass.invalid" class="has-text-danger">Veuillez saisir le mot de passe !</div>
+          <div class="control has-icons-left">
+            <input type="text" id="pass" #pass="ngModel" required placeholder="Saisir votre mot de passe" class="input" name="pass" ngModel>
+            <span class="icon is-small is-left">
+            <i class="fas fa-key"></i>
+            </span>
+            <div class="has-text-danger">
+              {{err}}
+            </div>
+
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control has-text-centered">
+            <button type="submit" [disabled]="f.invalid"  class="button is-primary has-icons-right">
+              <span>Connexion</span>
+              <span class="icon is-small is-left">
+                <i class="fas fa-sign-in-alt"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+
+</div>

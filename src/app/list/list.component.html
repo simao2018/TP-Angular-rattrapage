@@ -1,0 +1,48 @@
+<style>
+  body{
+    overflow: hidden !important;
+  }
+  .main{
+    min-height: 700px;
+  }
+  .bloc .column{
+    margin-top:150px;
+    min-height: 350px;
+    border-radius:5px;
+  }
+  th{
+    width: 300px;
+  }
+</style>
+
+<!-- Bloc Principal -->
+<div class="main container has-background-primary is-fullhd" role="banner">
+  <div class="bloc columns">
+    <div class="column is-6 has-background-white is-offset-3">
+      <div class="has-text-centered">
+        <p> <span class="subtitle is-4 is-bold">Liste des utilisateurs</span> <a routerLink="/login"> se deconnecter</a></p><hr>
+      </div>
+      <div class="is-10">
+        <table class="is-10 table is-bordered">
+          <thead>
+          <tr class="is-10">
+            <th>#</th>
+            <th>nom</th>
+            <th>âge</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of users;let i = index;">
+            <th>{{ i }} <span *ngIf="user['login']=='simao'" class="tag is-info">Admin</span></th>
+            <th>{{ user['nom'] }}</th>
+            <th>{{ user['age'] }} ans</th>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
